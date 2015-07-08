@@ -3,7 +3,7 @@ import React from 'react';
 // add whatever you want to play with
 import mdor from '../index';
 
-let {Button} = mdor;
+let {Button, Slider} = mdor;
 
 class Playground extends React.Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class Playground extends React.Component {
     }
 
     render() {
-        return <Button />;
+        return <Slider />;
     }
 };
 
