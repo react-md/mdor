@@ -4,6 +4,8 @@
   "description": "Google Material Design Lite on Reactjs",
   "main": "index.js",
   "scripts": {
+    "build": "grunt",
+    "dev": "grunt watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,5 +15,15 @@
     "reactjs"
   ],
   "author": "react-td <tom76kimo@gmail.com> (https://github.com/react-md)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-loader": "^5.3.1",
+    "css-loader": "^0.15.2",
+    "grunt": "^0.4.5",
+    "grunt-webpack": "^1.0.11",
+    "node-libs-browser": "^0.5.2",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.10.1",
+    "webpack-dev-server": "^1.10.1"
+  }
 }
