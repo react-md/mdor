@@ -1,0 +1,17 @@
+{
+  "name": "mdor",
+  "version": "0.0.1",
+  "description": "Google Material Design Lite on Reactjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "google",
+    "material",
+    "design",
+    "reactjs"
+  ],
+  "author": "react-td <tom76kimo@gmail.com> (https://github.com/react-md)",
+  "license": "MIT"
+}
