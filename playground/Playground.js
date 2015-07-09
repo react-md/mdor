@@ -12,7 +12,7 @@ class Playground extends React.Component {
     }
 
     render() {
-        return <Slider />;
+        return <Slider max="100" width="50vw" />;
     }
 };
 
