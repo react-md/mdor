@@ -17,8 +17,6 @@ class Slider extends React.Component {
             isIE_: window && window.navigator && window.navigator.msPointerEnabled,
             isLowest: true,
             value: parseInt(this.props.value, 10) || 0,
-            min: parseInt(this.props.min, 10) || 0,
-            max: parseInt(this.props.max, 10) || 100,
             lowerStyle: {},
             upperStyle: {},
         };
@@ -73,9 +71,9 @@ class Slider extends React.Component {
 
     updateValueStyles_() {
         let value = this.mainElement.value;
-        let fraction = (value - this.state.min) /
-            (this.state.max - this.state.min);
-
+        let min = parseInt(this.props.min, 10);
+        let max = parseInt(this.props.max, 10);
+        let fraction = (value - min) / (max - min);
         let isLowest;
 
         if (fraction === 0) {
@@ -127,9 +125,10 @@ class Slider extends React.Component {
                             onInput={this.boundInputHandler}
                             className={mainElementClass}
                             type="range"
-                            min={this.state.min}
-                            max={this.state.max}
+                            min={this.props.min}
+                            max={this.props.max}
                             value={this.state.value}
+                            step={this.props.step}
                             tabIndex="0" />);
 
         if (this.state.isIE_) {
@@ -174,12 +173,24 @@ Slider.propTypes = {
         React.PropTypes.number,
         React.PropTypes.string,
     ]),
+    value: React.PropTypes.oneOfType([
+        React.PropTypes.number,
+        React.PropTypes.string,
+    ]),
+    step: React.PropTypes.oneOfType([
+        React.PropTypes.number,
+        React.PropTypes.string,
+    ]),
     onChange: React.PropTypes.func,
     onMouseUp: React.PropTypes.func,
 };
 Slider.defaultProps = {
     width: null,
     maxWidth: null,
+    min: 0,
+    max: 100,
+    value: 0,
+    step: 1,
 };
 
 
