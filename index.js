@@ -1,4 +1,6 @@
 import Button from './src/components/Button';
+import Slider from './src/components/Slider';
 export default {
-    Button: Button
+    Button: Button,
+    Slider: Slider,
 };
