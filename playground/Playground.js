@@ -3,7 +3,7 @@ import React from 'react';
 // add whatever you want to play with
 import mdor from '../index';
 
-let {Button, Slider} = mdor;
+let {Button, Slider, Tooltip} = mdor;
 
 class Playground extends React.Component {
     constructor(props) {
@@ -12,7 +12,16 @@ class Playground extends React.Component {
     }
 
     render() {
-        return <Slider max="100" width="50vw" />;
+        return (
+            <div>
+                <div className="row">
+                    <Tooltip content="hi all" />
+                </div>
+                <div className="row">
+                    <Slider width="50vw" maxWidth="300" value="10" />
+                </div>
+            </div>
+        );
     }
 };
 
