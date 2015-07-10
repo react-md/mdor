@@ -1,6 +1,6 @@
 ##How to develop
 
-Use playgournd
+Use playground
 
 first run
 ```
