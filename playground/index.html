@@ -1,17 +1,29 @@
 <html>
 <head>
+    <title>Playground</title>
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style type="text/css">
     body {
-        margin: 20px 20px 0px 20px;
+        padding: 20px 20px 0px 20px;
+        box-sizing: border-box;
     }
     .row {
         display: block;
         margin-top: 10px;
         margin-bottom: 10px;
-        border-bottom-width: 1px;
-        border-bottom-color: #aaaaaa;
+        min-height: 50px;
+        position: relative;
+        padding-top: 20px;
+    }
+    .row::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #aaaaaa;
+        bottom: 0;
+        position: absolute;
     }
     </style>
 </head>
