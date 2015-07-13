@@ -16,7 +16,7 @@ class Tooltip extends React.Component {
         this.boundMouseLeaveHandler = this.handleMouseLeave.bind(this);
     }
 
-    handleMouseEnter() {
+    handleMouseEnter(event) {
         event.stopPropagation();
 
         let mainElementStyle = {};
