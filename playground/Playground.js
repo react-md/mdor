@@ -3,7 +3,7 @@ import React from 'react';
 // add whatever you want to play with
 import mdor from '../index';
 
-const {Slider, Tooltip} = mdor;
+const {Slider, Tooltip, Checkbox} = mdor;
 
 class Playground extends React.Component {
   render() {
@@ -14,6 +14,9 @@ class Playground extends React.Component {
         </div>
         <div className="row">
           <Slider width="50vw" maxWidth="300" value="10" />
+        </div>
+        <div className="row">
+          <Checkbox ripple="true" checked onChange={(checked)=>{console.log(checked);}}/>
         </div>
       </div>
     );
