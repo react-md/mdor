@@ -3,7 +3,7 @@ import React from 'react';
 // add whatever you want to play with
 import mdor from '../index';
 
-const {Slider, Tooltip, Checkbox} = mdor;
+const {Slider, Tooltip, Checkbox, Radio, RadioGroup} = mdor;
 
 class Playground extends React.Component {
   render() {
@@ -17,6 +17,13 @@ class Playground extends React.Component {
         </div>
         <div className="row">
           <Checkbox ripple="true" checked onChange={(checked)=>{console.log(checked);}}/>
+        </div>
+        <div className="row">
+          <RadioGroup defaultValue="op1">
+            <Radio label="option1" style={{marginLeft: 10}} value="op1" ripple checked/>
+            <Radio label="option2" style={{marginLeft: 10}} value="op2" />
+            <Radio label="option2" style={{marginLeft: 10}} value="op3" disabled/>
+          </RadioGroup>
         </div>
       </div>
     );
