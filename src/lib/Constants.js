@@ -3,7 +3,6 @@ let Constants = {
         RIPPLE_EFFECT: 'mdl-js-ripple-effect',
         RIPPLE_CENTER: 'mdl-ripple--center',
         RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
-        RIPPLE_CONTAINER: 'mdl-button__ripple-container',
         RIPPLE: 'mdl-ripple',
         IS_ANIMATING: 'is-animating',
         IS_VISIBLE: 'is-visible',

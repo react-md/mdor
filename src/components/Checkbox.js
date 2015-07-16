@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import Ripple from './Ripple';
 
 const TINY_TIMEOUT = 0.001;
 const INPUT = 'mdl-checkbox__input';
@@ -86,9 +87,7 @@ class Checkbox extends React.Component {
     let rippleElement = null;
     if (this.props.ripple) {
       rippleElement = (
-        <span className={classnames(RIPPLE_CONTAINER, RIPPLE_EFFECT, RIPPLE_CENTER)} onMouseUp={this.boundElementMouseUp}>
-          <span className={RIPPLE}></span>
-        </span>
+        <Ripple recenter={true} className={'mdl-checkbox__ripple-container'}/>
       );
     }
     return (

@@ -3,12 +3,15 @@ import React from 'react';
 // add whatever you want to play with
 import mdor from '../index';
 
-const {Slider, Tooltip, Checkbox, Radio, RadioGroup} = mdor;
+const {Button, Slider, Tooltip, Checkbox, Radio, RadioGroup} = mdor;
 
 class Playground extends React.Component {
   render() {
     return (
       <div>
+        <div className="row">
+          <Button />
+        </div>
         <div className="row">
           <Tooltip content="hi all" />
         </div>
