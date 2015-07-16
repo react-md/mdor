@@ -12,7 +12,20 @@ class Button extends React.Component {
     }
   }
 
+  buttonOnClick() {
+    this.props.onClick && this.props.onClick();
+  }
+
   render() {
+    const buttonClass = classnames({
+      'mdl-button mdl-js-button': true,
+      'mdl-button--fab': this.props.type === 'fab' || this.props.type === 'mini-fab',
+      'mdl-button--mini-fab': this.props.type ==='mini-fab',
+      'mdl-button--colored': !!this.props.colored,
+      'mdl-button--accent': !!this.props.accent,
+      'mdl-button--primary': !!this.props.primary,
+      'mdl-button--raised': this.props.type === 'raise',
+    });
     let rippleContainer;
     if (this.props.ripple) {
       rippleContainer = (
@@ -22,8 +35,8 @@ class Button extends React.Component {
       );
     }
     return (
-      <button onMouseUp={this.boundButtonBlurHandler} onMouseLeave={this.boundButtonBlurHandler} ref="mainElement" className="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" disabled={this.props.disabled}>
-        <i className="material-icons">add</i>
+      <button onClick={this.props.onClick} onMouseUp={this.boundButtonBlurHandler} onMouseLeave={this.boundButtonBlurHandler} ref="mainElement" className={buttonClass} disabled={this.props.disabled}>
+        {this.props.children}
         {rippleContainer}
       </button>
     );
@@ -34,6 +47,7 @@ class Button extends React.Component {
     this.state = {};
     this.boundRippleBlurHandler = this.blurHandler.bind(this);
     this.boundButtonBlurHandler = this.blurHandler.bind(this);
+    this.buttonOnClick = this.buttonOnClick.bind(this);
   }
 
   componentDidMount() {
@@ -42,7 +56,20 @@ class Button extends React.Component {
 }
 
 Button.propTypes = {
+  onClick: React.PropTypes.func,
+  colored: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.bool,
+  ]),
+  disabled: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.bool,
+  ]),
+};
 
+Button.defaultProps = {
+  disabled: false,
+  colored: false,
 };
 
 export default Button;
