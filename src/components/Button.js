@@ -13,6 +13,9 @@ class Button extends React.Component {
   }
 
   buttonOnClick() {
+    if (this.props.disabled) {
+      return;
+    }
     this.props.onClick && this.props.onClick();
   }
 
@@ -65,11 +68,13 @@ Button.propTypes = {
     React.PropTypes.string,
     React.PropTypes.bool,
   ]),
+  type: React.PropTypes.string,
 };
 
 Button.defaultProps = {
   disabled: false,
   colored: false,
+  type: null,
 };
 
 export default Button;
