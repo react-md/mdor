@@ -5,14 +5,13 @@ class Button extends React.Component {
     return (
       <button className="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
         <i className="material-icons">add</i>
-        <Ripple className="mdl-button__ripple-container"/>
       </button>
     );
   }
 
   constructor(props) {
     super(props);
-    this.state= {};
+    this.state = {};
   }
 }
 
