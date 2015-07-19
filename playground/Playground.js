@@ -3,7 +3,7 @@ import React from 'react';
 // add whatever you want to play with
 import mdor from '../index';
 
-const {Slider, Tooltip, Checkbox, Radio, RadioGroup} = mdor;
+const {Button, Slider, Tooltip, Checkbox, Radio, RadioGroup} = mdor;
 
 class Playground extends React.Component {
   render() {
@@ -24,6 +24,9 @@ class Playground extends React.Component {
             <Radio label="option2" style={{marginLeft: 10}} value="op2" />
             <Radio label="option2" style={{marginLeft: 10}} value="op3" disabled/>
           </RadioGroup>
+        </div>
+        <div className="row">
+          <Button type="mini-fab" colored ><i className="material-icons">mood</i></Button>
         </div>
       </div>
     );
