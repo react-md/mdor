@@ -110,6 +110,19 @@ class Ripple extends React.Component {
 
         this.addRippleClass_(Constants.Ripple.IS_VISIBLE);
 
+        if (event.type === 'mousedown' && this.state.ignoringMouseDown) {
+            this.setState({
+                ignoringMouseDown: false
+            });
+            return;
+        }
+
+        if (event.type === 'touchstart') {
+            this.setState({
+                ignoringMouseDown: true
+            });
+        }
+
         if (frameCount > 0) {
             return;
         }
@@ -184,12 +197,10 @@ class Ripple extends React.Component {
 Ripple.propTypes = {
     className: React.PropTypes.string,
     recenter: React.PropTypes.bool,
-    ignoreEvents: React.PropTypes.bool,
 };
 Ripple.defaultProps = {
     className: '',
     recenter: false,
-    ignoreEvents: false,
 };
 
 
