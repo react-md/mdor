@@ -66,6 +66,7 @@
 
 	var _index2 = _interopRequireDefault(_index);
 
+	var Button = _index2['default'].Button;
 	var Slider = _index2['default'].Slider;
 	var Tooltip = _index2['default'].Tooltip;
 	var Checkbox = _index2['default'].Checkbox;
@@ -114,6 +115,19 @@
 	            _react2['default'].createElement(Radio, { label: 'option1', style: { marginLeft: 10 }, value: 'op1', ripple: true, checked: true }),
 	            _react2['default'].createElement(Radio, { label: 'option2', style: { marginLeft: 10 }, value: 'op2' }),
 	            _react2['default'].createElement(Radio, { label: 'option2', style: { marginLeft: 10 }, value: 'op3', disabled: true })
+	          )
+	        ),
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'row' },
+	          _react2['default'].createElement(
+	            Button,
+	            { type: 'mini-fab', colored: true },
+	            _react2['default'].createElement(
+	              'i',
+	              { className: 'material-icons' },
+	              'mood'
+	            )
 	          )
 	        )
 	      );
@@ -20512,15 +20526,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _srcComponentsButton = __webpack_require__(160);
+	var _srcComponentsButton = __webpack_require__(162);
 
 	var _srcComponentsButton2 = _interopRequireDefault(_srcComponentsButton);
 
-	var _srcComponentsSlider = __webpack_require__(161);
+	var _srcComponentsSlider = __webpack_require__(163);
 
 	var _srcComponentsSlider2 = _interopRequireDefault(_srcComponentsSlider);
 
-	var _srcComponentsTooltip = __webpack_require__(162);
+	var _srcComponentsTooltip = __webpack_require__(164);
 
 	var _srcComponentsTooltip2 = _interopRequireDefault(_srcComponentsTooltip);
 
@@ -20528,11 +20542,11 @@
 
 	var _srcComponentsCheckbox2 = _interopRequireDefault(_srcComponentsCheckbox);
 
-	var _srcComponentsRadio = __webpack_require__(163);
+	var _srcComponentsRadio = __webpack_require__(165);
 
 	var _srcComponentsRadio2 = _interopRequireDefault(_srcComponentsRadio);
 
-	var _srcComponentsRadioGroup = __webpack_require__(164);
+	var _srcComponentsRadioGroup = __webpack_require__(166);
 
 	var _srcComponentsRadioGroup2 = _interopRequireDefault(_srcComponentsRadioGroup);
 
@@ -20573,6 +20587,10 @@
 	var _classnames = __webpack_require__(159);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _Ripple = __webpack_require__(160);
+
+	var _Ripple2 = _interopRequireDefault(_Ripple);
 
 	var TINY_TIMEOUT = 0.001;
 	var INPUT = 'mdl-checkbox__input';
@@ -20670,11 +20688,7 @@
 	      });
 	      var rippleElement = null;
 	      if (this.props.ripple) {
-	        rippleElement = _react2['default'].createElement(
-	          'span',
-	          { className: (0, _classnames2['default'])(RIPPLE_CONTAINER, RIPPLE_EFFECT, RIPPLE_CENTER), onMouseUp: this.boundElementMouseUp },
-	          _react2['default'].createElement('span', { className: RIPPLE })
-	        );
+	        rippleElement = _react2['default'].createElement(_Ripple2['default'], { recenter: true, className: 'mdl-checkbox__ripple-container' });
 	      }
 	      return _react2['default'].createElement(
 	        'label',
@@ -20776,59 +20790,403 @@
 /* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _classnames = __webpack_require__(159);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _libConstants = __webpack_require__(161);
+
+	var _libConstants2 = _interopRequireDefault(_libConstants);
+
+	// ignore: false, hierarchical: false => button
+	// ignore: true, hierarchical: false => checkbox, icon-toggle, radio, switch, menu
+	// ignore: true, hierarchical: true => menu (menu_item), layout (tab)
+
+	var Ripple = (function (_React$Component) {
+	    function Ripple(props) {
+	        _classCallCheck(this, Ripple);
+
+	        _get(Object.getPrototypeOf(Ripple.prototype), 'constructor', this).call(this, props);
+
+	        var classNames = {};
+
+	        classNames[_libConstants2['default'].Ripple.RIPPLE] = true;
+	        classNames[_libConstants2['default'].Ripple.IS_VISIBLE] = false;
+
+	        this.state = {
+	            frameCount: 0,
+	            width: 0,
+	            height: 0,
+	            x: 0,
+	            y: 0,
+	            ignoringMouseDown: false,
+	            classNames: classNames
+	        };
+
+	        this.props = {};
+	        this.boundSetRippleSize = this.setRippleSize_.bind(this);
+	        this.boundTransformRipple = this.transformRipple_.bind(this);
+	        this.boundAnimFrameHandler = this.animFrameHandler_.bind(this);
+	        this.boundDownHandler = this.downHandler_.bind(this);
+	        this.boundUpHandler = this.upHandler_.bind(this);
+	    }
+
+	    _inherits(Ripple, _React$Component);
+
+	    _createClass(Ripple, [{
+	        key: 'setRippleSize_',
+	        value: function setRippleSize_(size) {
+	            this.mainElement.style.width = size + 'px';
+	            this.mainElement.style.height = size + 'px';
+	        }
+	    }, {
+	        key: 'addRippleClass_',
+	        value: function addRippleClass_(className) {
+	            var classNames = this.state.classNames;
+
+	            classNames[className] = true;
+	            this.setState({
+	                classNames: classNames
+	            });
+	        }
+	    }, {
+	        key: 'removeRippleClass_',
+	        value: function removeRippleClass_(className) {
+	            var classNames = this.state.classNames;
+
+	            classNames[className] = false;
+	            this.setState({
+	                classNames: classNames
+	            });
+	        }
+	    }, {
+	        key: 'transformRipple_',
+	        value: function transformRipple_(start) {
+	            var transformString = undefined;
+	            var scale = undefined;
+	            var offset = 'translate(' + this.state.x + 'px, ' + this.state.y + 'px)';
+
+	            if (start) {
+	                scale = _libConstants2['default'].Ripple.INITIAL_SCALE;
+	            } else {
+	                scale = _libConstants2['default'].Ripple.FINAL_SCALE;
+	                if (this.props.recenter) {
+	                    offset = 'translate(' + this.state.width / 2 + 'px, ' + this.state.height / 2 + 'px)';
+	                }
+	            }
+
+	            transformString = 'translate(-50%, -50%) ' + offset + ' ' + scale;
+
+	            this.mainElement.style.webkitTransform = transformString;
+	            this.mainElement.style.msTransform = transformString;
+	            this.mainElement.style.transform = transformString;
+
+	            if (start) {
+	                this.removeRippleClass_(_libConstants2['default'].Ripple.IS_ANIMATING);
+	            } else {
+	                this.addRippleClass_(_libConstants2['default'].Ripple.IS_ANIMATING);
+	            }
+	        }
+	    }, {
+	        key: 'animFrameHandler_',
+	        value: function animFrameHandler_() {
+	            var _this = this;
+
+	            var frameCount = this.state.frameCount;
+
+	            if (frameCount-- > 0) {
+	                this.setState({
+	                    frameCount: frameCount
+	                }, (function () {
+	                    window.requestAnimationFrame(_this.boundAnimFrameHandler);
+	                }).bind(this));
+	            } else {
+	                this.boundTransformRipple(false);
+	            }
+	        }
+	    }, {
+	        key: 'downHandler_',
+	        value: function downHandler_(event) {
+	            var _this2 = this;
+
+	            var frameCount = this.state.frameCount;
+	            var rect = undefined;
+	            var clientX = undefined;
+	            var clientY = undefined;
+	            var x = undefined;
+	            var y = undefined;
+	            var width = undefined;
+	            var height = undefined;
+	            var rippleSize = undefined;
+
+	            this.addRippleClass_(_libConstants2['default'].Ripple.IS_VISIBLE);
+
+	            if (event.type === 'mousedown' && this.state.ignoringMouseDown) {
+	                this.setState({
+	                    ignoringMouseDown: false
+	                });
+	                return;
+	            }
+
+	            if (event.type === 'touchstart') {
+	                this.setState({
+	                    ignoringMouseDown: true
+	                });
+	            }
+
+	            if (frameCount > 0) {
+	                return;
+	            }
+
+	            frameCount = 1;
+	            this.setState({
+	                frameCount: frameCount
+	            });
+
+	            rect = event.currentTarget.getBoundingClientRect();
+
+	            if (event.clientX === 0 && event.clientY === 0) {
+	                x = Math.round(rect.width / 2);
+	                y = Math.round(rect.height / 2);
+	            } else {
+	                clientX = event.clientX ? event.clientX : event.touches[0].clientX;
+	                clientY = event.clientY ? event.clientY : event.touches[0].clientY;
+	                x = Math.round(clientX - rect.left);
+	                y = Math.round(clientY - rect.top);
+	            }
+	            this.setState({
+	                x: x,
+	                y: y
+	            }, (function () {
+	                _this2.boundTransformRipple(true);
+	                window.requestAnimationFrame(_this2.boundAnimFrameHandler);
+	            }).bind(this));
+	        }
+	    }, {
+	        key: 'upHandler_',
+	        value: function upHandler_() {
+	            this.removeRippleClass_(_libConstants2['default'].Ripple.IS_VISIBLE);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2['default'].createElement(
+	                'span',
+	                { className: this.props.className, ref: 'containerElement',
+	                    onMouseDown: this.boundDownHandler,
+	                    onTouchStart: this.boundDownHandler,
+	                    onMouseUp: this.boundUpHandler,
+	                    onMouseLeave: this.boundUpHandler,
+	                    onTouchEnd: this.boundUpHandler,
+	                    onBlur: this.boundUpHandler },
+	                _react2['default'].createElement('span', { className: (0, _classnames2['default'])(this.state.classNames), ref: 'mainElement' })
+	            );
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var rect = undefined;
+	            var width = undefined;
+	            var height = undefined;
+	            var rippleSize = undefined;
+
+	            this.mainElement = this.refs.mainElement.getDOMNode();
+	            this.containerElement = this.refs.containerElement.getDOMNode();
+
+	            rect = this.containerElement.getBoundingClientRect();
+	            width = rect.width;
+	            height = rect.height;
+
+	            rippleSize = Math.sqrt(width * width + height * height) * 2 + 2;
+	            this.boundSetRippleSize(rippleSize);
+
+	            this.setState({
+	                width: width,
+	                height: height
+	            });
+	        }
+	    }]);
+
+	    return Ripple;
+	})(_react2['default'].Component);
+
+	;
+
+	Ripple.propTypes = {
+	    className: _react2['default'].PropTypes.string,
+	    recenter: _react2['default'].PropTypes.bool
+	};
+	Ripple.defaultProps = {
+	    className: '',
+	    recenter: false
+	};
+
+	exports['default'] = Ripple;
+	module.exports = exports['default'];
+
+/***/ },
+/* 161 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	var Constants = {
+	    Ripple: {
+	        RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+	        RIPPLE_CENTER: 'mdl-ripple--center',
+	        RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+	        RIPPLE: 'mdl-ripple',
+	        IS_ANIMATING: 'is-animating',
+	        IS_VISIBLE: 'is-visible',
+	        INITIAL_SCALE: 'scale(0.0001, 0.0001)',
+	        INITIAL_SIZE: '1px',
+	        INITIAL_OPACITY: '0.4',
+	        FINAL_OPACITY: '0',
+	        FINAL_SCALE: ''
+	    }
+	};
+
+	exports['default'] = Constants;
+	module.exports = exports['default'];
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(159);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var RIPPLE_EFFECT = 'mdl-js-ripple-effect';
+	var RIPPLE_CONTAINER = 'mdl-button__ripple-container';
+	var RIPPLE = 'mdl-ripple';
+
 	var Button = (function (_React$Component) {
 	  function Button(props) {
 	    _classCallCheck(this, Button);
 
-	    _get(Object.getPrototypeOf(Button.prototype), "constructor", this).call(this, props);
+	    _get(Object.getPrototypeOf(Button.prototype), 'constructor', this).call(this, props);
 	    this.state = {};
+	    this.boundRippleBlurHandler = this.blurHandler.bind(this);
+	    this.boundButtonBlurHandler = this.blurHandler.bind(this);
+	    this.buttonOnClick = this.buttonOnClick.bind(this);
 	  }
 
 	  _inherits(Button, _React$Component);
 
 	  _createClass(Button, [{
-	    key: "render",
+	    key: 'blurHandler',
+	    value: function blurHandler(event) {
+	      if (event) {
+	        this.mainElement.blur();
+	      }
+	    }
+	  }, {
+	    key: 'buttonOnClick',
+	    value: function buttonOnClick() {
+	      if (this.props.disabled) {
+	        return;
+	      }
+	      this.props.onClick && this.props.onClick();
+	    }
+	  }, {
+	    key: 'render',
 	    value: function render() {
-	      return _react2["default"].createElement(
-	        "button",
-	        { className: "mdl-button mdl-js-button mdl-button--fab mdl-button--colored" },
-	        _react2["default"].createElement(
-	          "i",
-	          { className: "material-icons" },
-	          "add"
-	        )
+	      var buttonClass = (0, _classnames2['default'])({
+	        'mdl-button mdl-js-button': true,
+	        'mdl-button--fab': this.props.type === 'fab' || this.props.type === 'mini-fab',
+	        'mdl-button--mini-fab': this.props.type === 'mini-fab',
+	        'mdl-button--colored': !!this.props.colored,
+	        'mdl-button--accent': !!this.props.accent,
+	        'mdl-button--primary': !!this.props.primary,
+	        'mdl-button--raised': this.props.type === 'raise'
+	      });
+	      var rippleContainer = undefined;
+	      if (this.props.ripple) {
+	        rippleContainer = _react2['default'].createElement(
+	          'span',
+	          { className: RIPPLE_CONTAINER },
+	          _react2['default'].createElement('span', { onMouseUp: this.boundRippleBlurHandler, className: RIPPLE })
+	        );
+	      }
+	      return _react2['default'].createElement(
+	        'button',
+	        { onClick: this.props.onClick, onMouseUp: this.boundButtonBlurHandler, onMouseLeave: this.boundButtonBlurHandler, ref: 'mainElement', className: buttonClass, disabled: this.props.disabled },
+	        this.props.children,
+	        rippleContainer
 	      );
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.mainElement = this.refs.mainElement.getDOMNode();
 	    }
 	  }]);
 
 	  return Button;
-	})(_react2["default"].Component);
+	})(_react2['default'].Component);
 
-	exports["default"] = Button;
-	module.exports = exports["default"];
+	Button.propTypes = {
+	  onClick: _react2['default'].PropTypes.func,
+	  colored: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.bool]),
+	  disabled: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.bool]),
+	  type: _react2['default'].PropTypes.string
+	};
+
+	Button.defaultProps = {
+	  disabled: false,
+	  colored: false,
+	  type: null
+	};
+
+	exports['default'] = Button;
+	module.exports = exports['default'];
 
 /***/ },
-/* 161 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21049,7 +21407,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 162 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21176,7 +21534,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 163 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21339,7 +21697,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 164 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21366,7 +21724,7 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Radio = __webpack_require__(163);
+	var _Radio = __webpack_require__(165);
 
 	var _Radio2 = _interopRequireDefault(_Radio);
 
