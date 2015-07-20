@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import Constants from '../lib/Constants';
 import Ripple from './Ripple';
 
 const TINY_TIMEOUT = 0.001;
@@ -7,15 +8,6 @@ const INPUT = 'mdl-checkbox__input';
 const BOX_OUTLINE = 'mdl-checkbox__box-outline';
 const FOCUS_HELPER = 'mdl-checkbox__focus-helper';
 const TICK_OUTLINE = 'mdl-checkbox__tick-outline';
-const RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-const RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
-const RIPPLE_CONTAINER = 'mdl-checkbox__ripple-container';
-const RIPPLE_CENTER = 'mdl-ripple--center';
-const RIPPLE = 'mdl-ripple';
-const IS_FOCUSED = 'is-focused';
-const IS_DISABLED = 'is-disabled';
-const IS_CHECKED = 'is-checked';
-const IS_UPGRADED = 'is-upgraded';
 
 class Checkbox extends React.Component {
   constructor(props) {
@@ -78,8 +70,6 @@ class Checkbox extends React.Component {
   render() {
     const labelClass = classnames({
       'mdl-checkbox mdl-js-checkbox is-upgraded': true,
-      'mdl-js-ripple-effect': this.props.ripple,
-      'mdl-js-ripple-effect--ignore-events': this.props.ripple,
       'is-disabled': this.state.disabled,
       'is-checked': this.state.checked,
       'is-focused': this.state.isFocused,
@@ -87,7 +77,7 @@ class Checkbox extends React.Component {
     let rippleElement = null;
     if (this.props.ripple) {
       rippleElement = (
-        <Ripple recenter={true} className={'mdl-checkbox__ripple-container'}/>
+        <Ripple recenter={true} className={Constants.Checkbox.RIPPLE_CONTAINER}/>
       );
     }
     return (

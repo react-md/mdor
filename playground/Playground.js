@@ -26,7 +26,7 @@ class Playground extends React.Component {
           </RadioGroup>
         </div>
         <div className="row">
-          <Button type="mini-fab" colored ><i className="material-icons">mood</i></Button>
+          <Button ripple="true" type="mini-fab" colored ><i className="material-icons">mood</i></Button>
         </div>
       </div>
     );
