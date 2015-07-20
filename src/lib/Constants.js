@@ -1,4 +1,10 @@
 let Constants = {
+    Button: {
+        RIPPLE_CONTAINER: 'mdl-button__ripple-container',
+    },
+    Checkbox: {
+        RIPPLE_CONTAINER: 'mdl-checkbox__ripple-container',
+    },
     Ripple: {
         RIPPLE_EFFECT: 'mdl-js-ripple-effect',
         RIPPLE_CENTER: 'mdl-ripple--center',

@@ -1,9 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
-
-const RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-const RIPPLE_CONTAINER = 'mdl-button__ripple-container';
-const RIPPLE = 'mdl-ripple';
+import Constants from '../lib/Constants';
+import Ripple from './Ripple';
 
 class Button extends React.Component {
   blurHandler(event) {
@@ -29,18 +27,16 @@ class Button extends React.Component {
       'mdl-button--primary': !!this.props.primary,
       'mdl-button--raised': this.props.type === 'raise',
     });
-    let rippleContainer;
+    let rippleElement = null;
     if (this.props.ripple) {
-      rippleContainer = (
-        <span className={RIPPLE_CONTAINER}>
-          <span onMouseUp={this.boundRippleBlurHandler} className={RIPPLE}></span>
-        </span>
+      rippleElement = (
+        <Ripple className={Constants.Button.RIPPLE_CONTAINER}/>
       );
     }
     return (
       <button onClick={this.props.onClick} onMouseUp={this.boundButtonBlurHandler} onMouseLeave={this.boundButtonBlurHandler} ref="mainElement" className={buttonClass} disabled={this.props.disabled}>
         {this.props.children}
-        {rippleContainer}
+        {rippleElement}
       </button>
     );
   }
