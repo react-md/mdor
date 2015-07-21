@@ -66,6 +66,7 @@
 
 	var _index2 = _interopRequireDefault(_index);
 
+	var Badge = _index2['default'].Badge;
 	var Button = _index2['default'].Button;
 	var Slider = _index2['default'].Slider;
 	var Tooltip = _index2['default'].Tooltip;
@@ -74,13 +75,6 @@
 	var RadioGroup = _index2['default'].RadioGroup;
 
 	var Playground = (function (_React$Component) {
-	  function Playground(props) {
-	    _classCallCheck(this, Playground);
-
-	    _get(Object.getPrototypeOf(Playground.prototype), 'constructor', this).call(this, props);
-	    this.state = {};
-	  }
-
 	  _inherits(Playground, _React$Component);
 
 	  _createClass(Playground, [{
@@ -121,18 +115,52 @@
 	          'div',
 	          { className: 'row' },
 	          _react2['default'].createElement(
+	            'div',
+	            { style: { marginRight: '10px', display: 'inline-block' } },
+	            _react2['default'].createElement(
+	              Button,
+	              { ripple: 'true', type: 'mini-fab', colored: true },
+	              _react2['default'].createElement(
+	                'i',
+	                { className: 'material-icons' },
+	                'mood'
+	              )
+	            )
+	          ),
+	          _react2['default'].createElement(
 	            Button,
-	            { type: 'mini-fab', colored: true },
+	            { ripple: 'true', type: 'mini-fab' },
 	            _react2['default'].createElement(
 	              'i',
 	              { className: 'material-icons' },
 	              'mood'
 	            )
 	          )
+	        ),
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'row' },
+	          _react2['default'].createElement(
+	            Badge,
+	            { 'class': 'asdf', style: { color: 'rgba(0, 0, 0, 0.24)', marginRight: 40 }, iconify: true, icon: '3' },
+	            'account_box'
+	          ),
+	          _react2['default'].createElement(
+	            Badge,
+	            { 'class': 'asdf', icon: 'yo' },
+	            'html'
+	          )
 	        )
 	      );
 	    }
 	  }]);
+
+	  function Playground(props) {
+	    _classCallCheck(this, Playground);
+
+	    _get(Object.getPrototypeOf(Playground.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
 
 	  return Playground;
 	})(_react2['default'].Component);
@@ -20526,7 +20554,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _srcComponentsButton = __webpack_require__(162);
+	var _srcComponentsBadge = __webpack_require__(158);
+
+	var _srcComponentsBadge2 = _interopRequireDefault(_srcComponentsBadge);
+
+	var _srcComponentsButton = __webpack_require__(160);
 
 	var _srcComponentsButton2 = _interopRequireDefault(_srcComponentsButton);
 
@@ -20538,19 +20570,20 @@
 
 	var _srcComponentsTooltip2 = _interopRequireDefault(_srcComponentsTooltip);
 
-	var _srcComponentsCheckbox = __webpack_require__(158);
+	var _srcComponentsCheckbox = __webpack_require__(165);
 
 	var _srcComponentsCheckbox2 = _interopRequireDefault(_srcComponentsCheckbox);
 
-	var _srcComponentsRadio = __webpack_require__(165);
+	var _srcComponentsRadio = __webpack_require__(166);
 
 	var _srcComponentsRadio2 = _interopRequireDefault(_srcComponentsRadio);
 
-	var _srcComponentsRadioGroup = __webpack_require__(166);
+	var _srcComponentsRadioGroup = __webpack_require__(167);
 
 	var _srcComponentsRadioGroup2 = _interopRequireDefault(_srcComponentsRadioGroup);
 
 	exports['default'] = {
+	    Badge: _srcComponentsBadge2['default'],
 	    Button: _srcComponentsButton2['default'],
 	    Checkbox: _srcComponentsCheckbox2['default'],
 	    Radio: _srcComponentsRadio2['default'],
@@ -20588,147 +20621,51 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Ripple = __webpack_require__(160);
+	var Badge = (function (_React$Component) {
+	  function Badge() {
+	    _classCallCheck(this, Badge);
 
-	var _Ripple2 = _interopRequireDefault(_Ripple);
-
-	var TINY_TIMEOUT = 0.001;
-	var INPUT = 'mdl-checkbox__input';
-	var BOX_OUTLINE = 'mdl-checkbox__box-outline';
-	var FOCUS_HELPER = 'mdl-checkbox__focus-helper';
-	var TICK_OUTLINE = 'mdl-checkbox__tick-outline';
-	var RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-	var RIPPLE_IGNORE_EVENTS = 'mdl-js-ripple-effect--ignore-events';
-	var RIPPLE_CONTAINER = 'mdl-checkbox__ripple-container';
-	var RIPPLE_CENTER = 'mdl-ripple--center';
-	var RIPPLE = 'mdl-ripple';
-	var IS_FOCUSED = 'is-focused';
-	var IS_DISABLED = 'is-disabled';
-	var IS_CHECKED = 'is-checked';
-	var IS_UPGRADED = 'is-upgraded';
-
-	var Checkbox = (function (_React$Component) {
-	  function Checkbox(props) {
-	    _classCallCheck(this, Checkbox);
-
-	    _get(Object.getPrototypeOf(Checkbox.prototype), 'constructor', this).call(this, props);
-	    this.state = {
-	      disabled: !!this.props.disabled,
-	      checked: !!this.props.checked,
-	      isFocused: false
-	    };
-	    if (this.props.ripple) {}
-	    this.boundInputOnChange = this.onChange_.bind(this);
-	    this.boundInputOnFocus = this.onFocus_.bind(this);
-	    this.boundInputOnBlur = this.onBlur_.bind(this);
-	    this.boundElementMouseUp = this.onMouseUp_.bind(this);
-	    this.boundElementClick = this.onClick_.bind(this);
+	    _get(Object.getPrototypeOf(Badge.prototype), 'constructor', this).apply(this, arguments);
 	  }
 
-	  _inherits(Checkbox, _React$Component);
+	  _inherits(Badge, _React$Component);
 
-	  _createClass(Checkbox, [{
-	    key: 'onChange_',
-	    value: function onChange_() {
-	      this.props.onChange && this.props.onChange(this.state.checked);
-	    }
-	  }, {
-	    key: 'onFocus_',
-	    value: function onFocus_() {
-	      this.setState({
-	        isFocused: true
-	      });
-	    }
-	  }, {
-	    key: 'onBlur_',
-	    value: function onBlur_() {
-	      this.setState({
-	        isFocused: false
-	      });
-	    }
-	  }, {
-	    key: 'onMouseUp_',
-	    value: function onMouseUp_() {
-	      var _this = this;
-
-	      window.setTimeout((function () {
-	        _this.mainElement.blur();
-	      }).bind(this), TINY_TIMEOUT);
-	    }
-	  }, {
-	    key: 'onClick_',
-	    value: function onClick_(event) {
-	      var _this2 = this;
-
-	      event.stopPropagation();
-	      event.preventDefault();
-
-	      if (this.state.disabled) {
-	        return;
-	      }
-	      this.setState({
-	        checked: !this.state.checked
-	      }, (function () {
-	        _this2.onChange_(_this2.state.checked);
-	      }).bind(this));
-	    }
-	  }, {
-	    key: 'updateClasses_',
-	    value: function updateClasses_() {}
-	  }, {
+	  _createClass(Badge, [{
 	    key: 'render',
 	    value: function render() {
-	      var labelClass = (0, _classnames2['default'])({
-	        'mdl-checkbox mdl-js-checkbox is-upgraded': true,
-	        'mdl-js-ripple-effect': this.props.ripple,
-	        'mdl-js-ripple-effect--ignore-events': this.props.ripple,
-	        'is-disabled': this.state.disabled,
-	        'is-checked': this.state.checked,
-	        'is-focused': this.state.isFocused
-	      });
-	      var rippleElement = null;
-	      if (this.props.ripple) {
-	        rippleElement = _react2['default'].createElement(_Ripple2['default'], { recenter: true, className: 'mdl-checkbox__ripple-container' });
+	      var classString = undefined;
+	      var classObject = {
+	        'icon material-icons': !!this.props.iconify
+	      };
+	      if (this.props['class']) {
+	        classObject[this.props['class']] = true;
 	      }
+	      classString = (0, _classnames2['default'])('mdl-badge', classObject);
+
 	      return _react2['default'].createElement(
-	        'label',
-	        { ref: 'mainElement', className: labelClass, onMouseUp: this.boundElementMouseUp, onClick: this.boundElementClick },
-	        _react2['default'].createElement('input', { type: 'checkbox', onChange: this.boundInputOnChange, onFocus: this.boundInputOnFocus, onBlur: this.boundInputOnBlur, className: 'mdl-checkbox__input', checked: this.state.checked }),
-	        _react2['default'].createElement(
-	          'span',
-	          { className: 'mdl-checkbox__label' },
-	          'Checkbox'
-	        ),
-	        _react2['default'].createElement('span', { className: FOCUS_HELPER }),
-	        _react2['default'].createElement(
-	          'span',
-	          { className: BOX_OUTLINE },
-	          _react2['default'].createElement('span', { className: TICK_OUTLINE })
-	        ),
-	        rippleElement
+	        'div',
+	        { className: classString, style: this.props.style, 'data-badge': this.props.icon },
+	        this.props.children
 	      );
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.mainElement = this.refs.mainElement.getDOMNode();
 	    }
 	  }]);
 
-	  return Checkbox;
+	  return Badge;
 	})(_react2['default'].Component);
 
-	Checkbox.proptypes = {
-	  onChange: _react2['default'].PropTypes.func,
-	  checked: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.bool])
+	Badge.propTypes = {
+	  'class': _react.PropTypes.string,
+	  icon: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number]),
+	  style: _react.PropTypes.object
 	};
 
-	Checkbox.defaultProps = {
-	  disabled: false,
-	  checked: false
+	Badge.defaultProps = {
+	  style: {
+	    display: 'inline-block'
+	  }
 	};
 
-	exports['default'] = Checkbox;
+	exports['default'] = Badge;
 	module.exports = exports['default'];
 
 /***/ },
@@ -20788,6 +20725,155 @@
 
 /***/ },
 /* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(159);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _libConstants = __webpack_require__(161);
+
+	var _libConstants2 = _interopRequireDefault(_libConstants);
+
+	var _Ripple = __webpack_require__(162);
+
+	var _Ripple2 = _interopRequireDefault(_Ripple);
+
+	var Button = (function (_React$Component) {
+	  _inherits(Button, _React$Component);
+
+	  _createClass(Button, [{
+	    key: 'blurHandler',
+	    value: function blurHandler(event) {
+	      if (event) {
+	        this.mainElement.blur();
+	      }
+	    }
+	  }, {
+	    key: 'buttonOnClick',
+	    value: function buttonOnClick() {
+	      if (this.props.disabled) {
+	        return;
+	      }
+	      this.props.onClick && this.props.onClick();
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var buttonClass = (0, _classnames2['default'])({
+	        'mdl-button mdl-js-button': true,
+	        'mdl-button--fab': this.props.type === 'fab' || this.props.type === 'mini-fab',
+	        'mdl-button--mini-fab': this.props.type === 'mini-fab',
+	        'mdl-button--colored': !!this.props.colored,
+	        'mdl-button--accent': !!this.props.accent,
+	        'mdl-button--primary': !!this.props.primary,
+	        'mdl-button--raised': this.props.type === 'raise'
+	      });
+	      var rippleElement = null;
+	      if (this.props.ripple) {
+	        rippleElement = _react2['default'].createElement(_Ripple2['default'], { className: _libConstants2['default'].Button.RIPPLE_CONTAINER });
+	      }
+	      return _react2['default'].createElement(
+	        'button',
+	        { onClick: this.props.onClick, onMouseUp: this.boundButtonBlurHandler, onMouseLeave: this.boundButtonBlurHandler, ref: 'mainElement', className: buttonClass, disabled: this.props.disabled },
+	        this.props.children,
+	        rippleElement
+	      );
+	    }
+	  }]);
+
+	  function Button(props) {
+	    _classCallCheck(this, Button);
+
+	    _get(Object.getPrototypeOf(Button.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	    this.boundRippleBlurHandler = this.blurHandler.bind(this);
+	    this.boundButtonBlurHandler = this.blurHandler.bind(this);
+	    this.buttonOnClick = this.buttonOnClick.bind(this);
+	  }
+
+	  _createClass(Button, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.mainElement = this.refs.mainElement.getDOMNode();
+	    }
+	  }]);
+
+	  return Button;
+	})(_react2['default'].Component);
+
+	Button.propTypes = {
+	  onClick: _react2['default'].PropTypes.func,
+	  colored: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.bool]),
+	  disabled: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.bool]),
+	  type: _react2['default'].PropTypes.string
+	};
+
+	Button.defaultProps = {
+	  disabled: false,
+	  colored: false,
+	  type: null
+	};
+
+	exports['default'] = Button;
+	module.exports = exports['default'];
+
+/***/ },
+/* 161 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	var Constants = {
+	    Button: {
+	        RIPPLE_CONTAINER: 'mdl-button__ripple-container'
+	    },
+	    Checkbox: {
+	        RIPPLE_CONTAINER: 'mdl-checkbox__ripple-container'
+	    },
+	    Ripple: {
+	        RIPPLE_EFFECT: 'mdl-js-ripple-effect',
+	        RIPPLE_CENTER: 'mdl-ripple--center',
+	        RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
+	        RIPPLE: 'mdl-ripple',
+	        IS_ANIMATING: 'is-animating',
+	        IS_VISIBLE: 'is-visible',
+	        INITIAL_SCALE: 'scale(0.0001, 0.0001)',
+	        INITIAL_SIZE: '1px',
+	        INITIAL_OPACITY: '0.4',
+	        FINAL_OPACITY: '0',
+	        FINAL_SCALE: ''
+	    }
+	};
+
+	exports['default'] = Constants;
+	module.exports = exports['default'];
+
+/***/ },
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21042,147 +21128,6 @@
 	};
 
 	exports['default'] = Ripple;
-	module.exports = exports['default'];
-
-/***/ },
-/* 161 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-	var Constants = {
-	    Ripple: {
-	        RIPPLE_EFFECT: 'mdl-js-ripple-effect',
-	        RIPPLE_CENTER: 'mdl-ripple--center',
-	        RIPPLE_EFFECT_IGNORE_EVENTS: 'mdl-js-ripple-effect--ignore-events',
-	        RIPPLE: 'mdl-ripple',
-	        IS_ANIMATING: 'is-animating',
-	        IS_VISIBLE: 'is-visible',
-	        INITIAL_SCALE: 'scale(0.0001, 0.0001)',
-	        INITIAL_SIZE: '1px',
-	        INITIAL_OPACITY: '0.4',
-	        FINAL_OPACITY: '0',
-	        FINAL_SCALE: ''
-	    }
-	};
-
-	exports['default'] = Constants;
-	module.exports = exports['default'];
-
-/***/ },
-/* 162 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _classnames = __webpack_require__(159);
-
-	var _classnames2 = _interopRequireDefault(_classnames);
-
-	var RIPPLE_EFFECT = 'mdl-js-ripple-effect';
-	var RIPPLE_CONTAINER = 'mdl-button__ripple-container';
-	var RIPPLE = 'mdl-ripple';
-
-	var Button = (function (_React$Component) {
-	  function Button(props) {
-	    _classCallCheck(this, Button);
-
-	    _get(Object.getPrototypeOf(Button.prototype), 'constructor', this).call(this, props);
-	    this.state = {};
-	    this.boundRippleBlurHandler = this.blurHandler.bind(this);
-	    this.boundButtonBlurHandler = this.blurHandler.bind(this);
-	    this.buttonOnClick = this.buttonOnClick.bind(this);
-	  }
-
-	  _inherits(Button, _React$Component);
-
-	  _createClass(Button, [{
-	    key: 'blurHandler',
-	    value: function blurHandler(event) {
-	      if (event) {
-	        this.mainElement.blur();
-	      }
-	    }
-	  }, {
-	    key: 'buttonOnClick',
-	    value: function buttonOnClick() {
-	      if (this.props.disabled) {
-	        return;
-	      }
-	      this.props.onClick && this.props.onClick();
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var buttonClass = (0, _classnames2['default'])({
-	        'mdl-button mdl-js-button': true,
-	        'mdl-button--fab': this.props.type === 'fab' || this.props.type === 'mini-fab',
-	        'mdl-button--mini-fab': this.props.type === 'mini-fab',
-	        'mdl-button--colored': !!this.props.colored,
-	        'mdl-button--accent': !!this.props.accent,
-	        'mdl-button--primary': !!this.props.primary,
-	        'mdl-button--raised': this.props.type === 'raise'
-	      });
-	      var rippleContainer = undefined;
-	      if (this.props.ripple) {
-	        rippleContainer = _react2['default'].createElement(
-	          'span',
-	          { className: RIPPLE_CONTAINER },
-	          _react2['default'].createElement('span', { onMouseUp: this.boundRippleBlurHandler, className: RIPPLE })
-	        );
-	      }
-	      return _react2['default'].createElement(
-	        'button',
-	        { onClick: this.props.onClick, onMouseUp: this.boundButtonBlurHandler, onMouseLeave: this.boundButtonBlurHandler, ref: 'mainElement', className: buttonClass, disabled: this.props.disabled },
-	        this.props.children,
-	        rippleContainer
-	      );
-	    }
-	  }, {
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.mainElement = this.refs.mainElement.getDOMNode();
-	    }
-	  }]);
-
-	  return Button;
-	})(_react2['default'].Component);
-
-	Button.propTypes = {
-	  onClick: _react2['default'].PropTypes.func,
-	  colored: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.bool]),
-	  disabled: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.bool]),
-	  type: _react2['default'].PropTypes.string
-	};
-
-	Button.defaultProps = {
-	  disabled: false,
-	  colored: false,
-	  type: null
-	};
-
-	exports['default'] = Button;
 	module.exports = exports['default'];
 
 /***/ },
@@ -21561,6 +21506,170 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
+	var _libConstants = __webpack_require__(161);
+
+	var _libConstants2 = _interopRequireDefault(_libConstants);
+
+	var _Ripple = __webpack_require__(162);
+
+	var _Ripple2 = _interopRequireDefault(_Ripple);
+
+	var TINY_TIMEOUT = 0.001;
+	var INPUT = 'mdl-checkbox__input';
+	var BOX_OUTLINE = 'mdl-checkbox__box-outline';
+	var FOCUS_HELPER = 'mdl-checkbox__focus-helper';
+	var TICK_OUTLINE = 'mdl-checkbox__tick-outline';
+
+	var Checkbox = (function (_React$Component) {
+	  function Checkbox(props) {
+	    _classCallCheck(this, Checkbox);
+
+	    _get(Object.getPrototypeOf(Checkbox.prototype), 'constructor', this).call(this, props);
+	    this.state = {
+	      disabled: !!this.props.disabled,
+	      checked: !!this.props.checked,
+	      isFocused: false
+	    };
+	    if (this.props.ripple) {}
+	    this.boundInputOnChange = this.onChange_.bind(this);
+	    this.boundInputOnFocus = this.onFocus_.bind(this);
+	    this.boundInputOnBlur = this.onBlur_.bind(this);
+	    this.boundElementMouseUp = this.onMouseUp_.bind(this);
+	    this.boundElementClick = this.onClick_.bind(this);
+	  }
+
+	  _inherits(Checkbox, _React$Component);
+
+	  _createClass(Checkbox, [{
+	    key: 'onChange_',
+	    value: function onChange_() {
+	      this.props.onChange && this.props.onChange(this.state.checked);
+	    }
+	  }, {
+	    key: 'onFocus_',
+	    value: function onFocus_() {
+	      this.setState({
+	        isFocused: true
+	      });
+	    }
+	  }, {
+	    key: 'onBlur_',
+	    value: function onBlur_() {
+	      this.setState({
+	        isFocused: false
+	      });
+	    }
+	  }, {
+	    key: 'onMouseUp_',
+	    value: function onMouseUp_() {
+	      var _this = this;
+
+	      window.setTimeout((function () {
+	        _this.mainElement.blur();
+	      }).bind(this), TINY_TIMEOUT);
+	    }
+	  }, {
+	    key: 'onClick_',
+	    value: function onClick_(event) {
+	      var _this2 = this;
+
+	      event.stopPropagation();
+	      event.preventDefault();
+
+	      if (this.state.disabled) {
+	        return;
+	      }
+	      this.setState({
+	        checked: !this.state.checked
+	      }, (function () {
+	        _this2.onChange_(_this2.state.checked);
+	      }).bind(this));
+	    }
+	  }, {
+	    key: 'updateClasses_',
+	    value: function updateClasses_() {}
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var labelClass = (0, _classnames2['default'])({
+	        'mdl-checkbox mdl-js-checkbox is-upgraded': true,
+	        'is-disabled': this.state.disabled,
+	        'is-checked': this.state.checked,
+	        'is-focused': this.state.isFocused
+	      });
+	      var rippleElement = null;
+	      if (this.props.ripple) {
+	        rippleElement = _react2['default'].createElement(_Ripple2['default'], { recenter: true, className: _libConstants2['default'].Checkbox.RIPPLE_CONTAINER });
+	      }
+	      return _react2['default'].createElement(
+	        'label',
+	        { ref: 'mainElement', className: labelClass, onMouseUp: this.boundElementMouseUp, onClick: this.boundElementClick },
+	        _react2['default'].createElement('input', { type: 'checkbox', onChange: this.boundInputOnChange, onFocus: this.boundInputOnFocus, onBlur: this.boundInputOnBlur, className: 'mdl-checkbox__input', checked: this.state.checked }),
+	        _react2['default'].createElement(
+	          'span',
+	          { className: 'mdl-checkbox__label' },
+	          'Checkbox'
+	        ),
+	        _react2['default'].createElement('span', { className: FOCUS_HELPER }),
+	        _react2['default'].createElement(
+	          'span',
+	          { className: BOX_OUTLINE },
+	          _react2['default'].createElement('span', { className: TICK_OUTLINE })
+	        ),
+	        rippleElement
+	      );
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.mainElement = this.refs.mainElement.getDOMNode();
+	    }
+	  }]);
+
+	  return Checkbox;
+	})(_react2['default'].Component);
+
+	Checkbox.proptypes = {
+	  onChange: _react2['default'].PropTypes.func,
+	  checked: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.bool])
+	};
+
+	Checkbox.defaultProps = {
+	  disabled: false,
+	  checked: false
+	};
+
+	exports['default'] = Checkbox;
+	module.exports = exports['default'];
+
+/***/ },
+/* 166 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(159);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
 	var TINY_TIMEOUT = 0.001;
 	var IS_FOCUSED = 'is-focused';
 	var IS_DISABLED = 'is-disabled';
@@ -21697,7 +21806,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 166 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21724,7 +21833,7 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Radio = __webpack_require__(165);
+	var _Radio = __webpack_require__(166);
 
 	var _Radio2 = _interopRequireDefault(_Radio);
 
