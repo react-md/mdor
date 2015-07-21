@@ -13,7 +13,13 @@ then
 3. compose playground page in `/playground/Playground.js`
 4. see result on `/playground/index.html`
 
-build code
+### Publish steps
+
+1. Make sure the modules you want to export have been specified in `index.js` at root folder.
+
+2. Raise npm module version
+
+3. run
 ```
-$ npm run build
+$ npm publish ./
 ```

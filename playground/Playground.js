@@ -1,7 +1,7 @@
 import React from 'react';
 
 // add whatever you want to play with
-import mdor from '../index';
+import mdor from './index';
 
 const {Button, Slider, Tooltip, Checkbox, Radio, RadioGroup} = mdor;
 

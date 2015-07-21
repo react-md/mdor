@@ -2,3 +2,5 @@ bundle.js
 node_modules/
 playground/playgroundBundle.js
 .DS_Store
+dist/
+npm-debug.log
