@@ -19,8 +19,8 @@ class Badge extends React.Component {
 }
 
 Badge.propTypes = {
-  class: Proptypes.string,
-  icon: PropTypes.oneOf([
+  class: PropTypes.string,
+  icon: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
   ]),
