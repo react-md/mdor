@@ -3,7 +3,7 @@ import React from 'react';
 // add whatever you want to play with
 import mdor from './index';
 
-const {Button, Slider, Tooltip, Checkbox, Radio, RadioGroup} = mdor;
+const {Badge, Button, Slider, Tooltip, Checkbox, Radio, RadioGroup} = mdor;
 
 class Playground extends React.Component {
   render() {
@@ -27,6 +27,9 @@ class Playground extends React.Component {
         </div>
         <div className="row">
           <Button ripple="true" type="mini-fab" colored ><i className="material-icons">mood</i></Button>
+        </div>
+        <div className="row">
+          <Badge class="asdf" style={{color: 'rgba(0, 0, 0, 0.24)'}} iconify icon="12">account_box</Badge>
         </div>
       </div>
     );
