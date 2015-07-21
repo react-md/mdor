@@ -1,14 +1,16 @@
 {
   "name": "mdor",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Google Material Design Lite on Reactjs",
-  "main": "bundle.js",
+  "main": "index.js",
   "scripts": {
     "build": "grunt",
     "dev": "grunt watch",
     "play": "grunt playground",
     "lint": "eslint index.js playground/Playground.js src/**/*.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "babel src/ --out-dir  dist",
+    "prepublish": "npm run compile"
   },
   "keywords": [
     "google",
@@ -19,6 +21,7 @@
   "author": "react-td <tom76kimo@gmail.com> (https://github.com/react-md)",
   "license": "MIT",
   "devDependencies": {
+    "babel": "^5.6.23",
     "babel-eslint": "^3.1.23",
     "babel-loader": "^5.3.1",
     "css-loader": "^0.15.2",
