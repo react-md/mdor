@@ -15,6 +15,16 @@ $ npm install mdor --save
 ```
 
 ## Components
+Current components included:
+ - Badge
+ - Button
+ - Checkbox
+ - Radio Button
+ - Ripple Effect
+ - Slider
+ - Tooltip
+
+Please checkout: [demo link](http://react-md.github.io/mdor/)
 
 ### Slider
 ```javascript
