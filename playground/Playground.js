@@ -3,7 +3,7 @@ import React from 'react';
 // add whatever you want to play with
 import mdor from './index';
 
-const {Badge, Button, Slider, Tooltip, Checkbox, Radio, RadioGroup} = mdor;
+const {Badge, Button, Slider, Tooltip, Checkbox, Radio, RadioGroup, Spinner} = mdor;
 
 class Playground extends React.Component {
   render() {
@@ -30,6 +30,10 @@ class Playground extends React.Component {
         </div>
         <div className="row">
           <Badge class="asdf" style={{color: 'rgba(0, 0, 0, 0.24)'}} iconify icon="12">account_box</Badge>
+        </div>
+        <div className="row">
+          <Spinner className="passClassname" active={true} />
+          <Spinner className="passClassname" active={true} single-color={true} style={{marginLeft: 30}} />
         </div>
       </div>
     );
