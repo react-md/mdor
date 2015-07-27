@@ -83,7 +83,7 @@ class Radio extends React.Component {
     }
 
     return (
-      <label style={this.props.style} className={labelClass + ' ' + this.props.class} onMouseUp={this.boundLabelMouseUp} onClick={this.boundLabelClick}>
+      <label style={this.props.style} className={labelClass + ' ' + this.props.className} onMouseUp={this.boundLabelMouseUp} onClick={this.boundLabelClick}>
         <input ref="mainElement" onBlur={this.boundInputBlur} onChange={this.boundInputChange} onFocus={this.boundInputFocus} type="radio" className="mdl-radio__button" name="options" value="1" checked={this.props.checked} />
         <span className="mdl-radio__label">{this.props.label}</span>
         <span className={RADIO_OUTER_CIRCLE}></span>
@@ -111,7 +111,7 @@ Radio.propTypes = {
     React.PropTypes.string,
     React.PropTypes.bool,
   ]),
-  class: React.PropTypes.string,
+  className: React.PropTypes.string,
   style: React.PropTypes.object,
 };
 
@@ -119,7 +119,7 @@ Radio.defaultProps = {
   label: null,
   checked: false,
   disabled: false,
-  class: '',
+  className: '',
   style: {},
 };
 

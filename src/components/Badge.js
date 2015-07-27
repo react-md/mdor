@@ -7,8 +7,8 @@ class Badge extends React.Component {
     let classObject = {
       'icon material-icons': !!this.props.iconify,
     };
-    if (this.props.class) {
-      classObject[this.props.class] = true;
+    if (this.props.className) {
+      classObject[this.props.className] = true;
     }
     classString = classnames('mdl-badge', classObject);
 
@@ -19,7 +19,7 @@ class Badge extends React.Component {
 }
 
 Badge.propTypes = {
-  class: PropTypes.string,
+  className: PropTypes.string,
   icon: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
