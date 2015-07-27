@@ -29,7 +29,7 @@ class Playground extends React.Component {
           <Button ripple="true" type="mini-fab" colored ><i className="material-icons">mood</i></Button>
         </div>
         <div className="row">
-          <Badge class="asdf" style={{color: 'rgba(0, 0, 0, 0.24)'}} iconify icon="12">account_box</Badge>
+          <Badge className="asdf" style={{color: 'rgba(0, 0, 0, 0.24)'}} iconify icon="12">account_box</Badge>
         </div>
       </div>
     );
