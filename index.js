@@ -4,6 +4,7 @@ var Tooltip = require('./dist/components/Tooltip');
 var Checkbox = require('./dist/components/Checkbox');
 var Radio = require('./dist/components/Radio');
 var RadioGroup = require('./dist/components/RadioGroup');
+var Spinner = require('./dist/components/Spinner');
 
 module.exports = {
   Button: Button,
@@ -11,5 +12,6 @@ module.exports = {
   Radio: Radio,
   RadioGroup: RadioGroup,
   Slider: Slider,
-  Tooltip: Tooltip
+  Spinner: Spinner,
+  Tooltip: Tooltip,
 };

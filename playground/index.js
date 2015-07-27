@@ -5,6 +5,7 @@ import Tooltip from '../src/components/Tooltip';
 import Checkbox from '../src/components/Checkbox';
 import Radio from '../src/components/Radio';
 import RadioGroup from '../src/components/RadioGroup';
+import Spinner from '../src/components/Spinner';
 
 export default {
     Badge: Badge,
@@ -14,4 +15,5 @@ export default {
     RadioGroup: RadioGroup,
     Slider: Slider,
     Tooltip: Tooltip,
+    Spinner: Spinner,
 };
