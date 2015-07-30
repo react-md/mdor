@@ -57,13 +57,13 @@ class Spinner extends React.Component {
     }
 }
 
-Slider.propTypes = {
+Spinner.propTypes = {
     active: React.PropTypes.bool,
     'single-color': React.PropTypes.bool,
     className: React.PropTypes.string,
     style: React.PropTypes.object
 };
-Slider.defaultProps = {
+Spinner.defaultProps = {
     active: true,
     'single-color': false,
     className: '',
